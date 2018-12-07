@@ -1,0 +1,117 @@
+.top-bg {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.big-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.userinfo-wrap {
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nock {
+  color: red;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.updateTime {
+  color: #666;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.userinfo-wrap .userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
+.userinfo-wrap .userinfo-nickname {
+  margin: 30rpx 0;
+  font-size: 30rpx;
+}
+
+.picker {
+  font-size: 30rpx;
+}
+
+.info-list {
+  width: 92%;
+  margin: 30rpx auto;
+}
+
+.info-list .mark {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 120rpx;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item .left-title .time {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.info-list .item .left-title .status {
+  margin-left: 20rpx;
+}
+.info-list .item .left-title .ing {
+  color: #666;
+}
+
+.info-list .item .left-title .pass {
+  color: #4ab848;
+}
+
+.info-list .item .left-title .nopass {
+  color: red;
+}
+
+.info-list .item .hot {
+  padding: 5rpx 10rpx;
+  color: #fff;
+  background: red;
+  font-size: 20rpx;
+  border-radius: 5px;
+  margin-left: 2rpx;
+  vertical-align: text-top;
+}
+.getUserInfo{
+  margin-top: 40%;
+  text-align: center;
+  font-size: 30rpx;
+}
+.getUserInfo .text{
+  margin-bottom: 20px;
+}
+.getUserInfo button{
+  background: #4ab848;
+width: 80%;
+color: #fff;
+margin: 30RPX auto;
+}

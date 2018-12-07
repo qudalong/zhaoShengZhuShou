@@ -1,0 +1,255 @@
+<view wx:if="{{!getUserInfoFail}}">
+  <view class='page'>
+    <scroll-view style="height:{{srollHeight}}px;" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true" scroll-into-view="{{toView}}">
+      <!-- <image class="bg" src="/image/bg@3x.png" background-size="cover"></image> -->
+      <view class='content-wrap'>
+        <view class='kindergarten'>{{form2.v_sch_name}}</view>
+        <view class='kindergarten tr'>—欢迎您</view>
+        <!-- 乐贝通幼儿园 -->
+        <view class='item-wrap1'>
+          <image class='flower' mode='aspectFill' src="/image/flowers@3x.png" background-size="cover"></image>
+          <view class='cover'>
+            <image wx:if="{{allInfo.pic_mien}}" src="{{allInfo.pic_mien}}" background-size="cover"></image>
+            <image wx:else src="/image/img_bg@3x.png" background-size="cover"></image>
+            <view class='name'>{{form2.v_sch_name}}</view>
+          </view>
+          <view class='info'>
+            <view class='name'>幼儿园信息</view>
+            <view class='list'>
+              <view>
+                <image src="/image/contact_icon@3x.png" class='icon'></image>招生联系人：{{form2.v_pub_name}}
+              </view>
+              <view>
+                <image src="/image/phone_icon@3x.png" class='icon'></image> 联系电话：{{form2.v_sch_tel}}
+              </view>
+              <view class='adress'>
+                <image src="/image/positioning_icon@3x.png" class='icon'></image>
+                <view class='flex details'>{{form2.v_sch_address}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--园所资源  -->
+        <view wx:if="{{form2.v_sch_level || form2.v_sch_nature}}">
+          <view class='title-item'>
+            <image src="/image/title_bg@3x.png" class='title-bg'></image>
+            <view class='title'>园所资源</view>
+          </view>
+          <view class='item-wrap1'>
+            <view class='mark-wrap'>
+              <view wx:if="{{form2.v_sch_level}}">{{form2.v_sch_level}}</view>
+              <view wx:if="{{form2.v_sch_nature}}">{{form2.v_sch_nature}}</view>
+            </view>
+
+            <view wx:if="{{form2.v_sch_level=='规范化'}}" class='lr'>
+              <image class="l" mode='aspectFit' src="/image/level_specification.png"></image>
+              <view class=''>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+              </view>
+            </view>
+            <view wx:if="{{form2.v_sch_level=='区级'}}" class='lr'>
+              <image class="l" mode='aspectFit' src="/image/level_specification.png"></image>
+              <view class=''>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+              </view>
+            </view>
+            <view wx:if="{{form2.v_sch_level=='省级'}}" class='lr'>
+              <image class="l" mode='aspectFit' src="/image/level_specification.png"></image>
+              <view class=''>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+              </view>
+            </view>
+            <view wx:if="{{form2.v_sch_level=='市级'}}" class='lr'>
+              <image class="l" mode='aspectFit' src="/image/level_specification.png"></image>
+              <view class=''>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+              </view>
+            </view>
+            <view wx:if="{{form2.v_sch_level=='办园许可证'}}" class='lr'>
+              <image class="l" mode='aspectFit'
+               src="/image/level_specification.png"></image>
+              <view class=''>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--特色教育-->
+        <view wx:if="{{ts.length||jiaoyu.length}}">
+          <view class='title-item'>
+            <image src="/image/title_bg@3x.png" class='title-bg'></image>
+            <view class='title'>特色教育</view>
+          </view>
+          <view class='item-wrap1'>
+            <view class='mark-wrap'>
+              <view class='it' wx:for="{{ts}}" wx:key="unique">{{item}}</view>
+            </view>
+            <view class='scroll-img'>
+              <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+                <view class="itemImg  {{jiaoyu.length==1 ? 'itemImg2':''}}" wx:for="{{jiaoyu}}" wx:key="unique" bindtap='previewImage' data-url="{{item}}">
+                  <image src="{{item}}" mode='aspectFill' class='item'></image>
+                  <text class='txt'>{{form2.v_sch_name}}</text>
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+        <!--招生简章-->
+        <view class='title-item'>
+          <image src="/image/title_bg@3x.png" class='title-bg'></image>
+          <view class='title'>招生简章</view>
+        </view>
+        <view class='item-wrap1'>
+          <view>
+            <image src="/image/admissions_icon@3x.png" class='icon'></image>
+            <text>招生范围</text>
+          </view>
+          <view class='table-title'>
+            <view>年级</view>
+            <view>建议年龄</view>
+            <view>招生人数</view>
+          </view>
+          <view class='table-td' wx:for="{{allInfo.enrolObj}}" wx:key="unique">
+            <view>{{item.v_sch_grade}}</view>
+            <view>{{item.v_sch_age}}</view>
+            <view>{{item.v_sch_num}}</view>
+          </view>
+          <block wx:if='{{form2.v_sch_tuition}}'>
+            <view class='row'>
+              <image src="/image/money_icon@3x.png" class='icon'></image>
+              <text>学习费用</text>
+            </view>
+            <view class='border'>{{form2.v_sch_tuition}}</view>
+          </block>
+          <block wx:if='{{form2.v_sch_activity}}'>
+            <view class='row'>
+              <image src="/image/activity_icon@3x.png" class=' icon '></image>
+              <text>优惠活动</text>
+            </view>
+            <view class='border'>{{form2.v_sch_activity}}</view>
+          </block>
+        </view>
+        <!--园所介绍-->
+        <view class='title-item '>
+          <image src="/image/title_bg@3x.png" class='title-bg '></image>
+          <view class='title '>园所介绍</view>
+        </view>
+        <view class='item-wrap1 tc'>
+          <image src="/image/title_introduction@3x.png" class='flower-title '></image>
+          <view class='details limit4 details2'>
+            {{form2.v_sch_info}}
+            <view class='more' data-desc="{{form2.v_sch_info}}" bindtap='more' wx:if='{{form2.v_sch_info.length>80}}'>
+              <text style='color:#000'>...</text> 更多
+            </view>
+          </view>
+        </view>
+        <!--亲子活动-->
+        <view class='item-wrap1 tc '>
+          <image src="/image/title_children@3x.png" mode='aspectFit' class='flower-title flower-title1 '></image>
+          <view class='scroll-img '>
+            <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+              <view class="itemImg  {{qinzi.length==1 ? 'itemImg2':''}}" wx:for="{{qinzi}}" wx:key="unique" bindtap='previewImage2' data-url="{{item}}">
+                <image src="{{item}}" mode='aspectFill' class='item'></image>
+                <text class='txt'>{{form2.v_sch_name}}</text>
+              </view>
+            </scroll-view>
+          </view>
+          <image src="/image/title_recipe@3x.png" mode='aspectFit' class='flower-title flower-title1 t20'></image>
+          <view class='scroll-img '>
+            <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+              <view class="itemImg  {{shipu.length==1 ? 'itemImg2':''}}" wx:for="{{shipu}}" wx:key="unique" bindtap='previewImage3' data-url="{{item}}">
+                <image src="{{item}}" mode='aspectFill' class='item'></image>
+                <text class='txt'>{{form2.v_sch_name}}</text>
+              </view>
+            </scroll-view>
+          </view>
+          <image src="/image/title_manual@3x.png" mode='aspectFit' class='flower-title flower-title1 t20'></image>
+          <view class='scroll-img '>
+            <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+              <view class="itemImg  {{shougong.length==1 ? 'itemImg2':''}}" wx:for="{{shougong}}" wx:key="unique" bindtap='previewImage4' data-url="{{item}}">
+                <image src="{{item}}" mode='aspectFill' class='item'></image>
+                <text class='txt'>{{form2.v_sch_name}}</text>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+        <!--线上报名-->
+        <view class='title-item' id='the-id'>
+          <image src="/image/title_bg@3x.png" class='title-bg '></image>
+          <view class='title '>线上报名</view>
+        </view>
+        <form bindsubmit="iApply" report-submit="true">
+          <view class='item-wrap1 '>
+            <view class='item '>
+              <view class='title '>宝宝姓名</view>
+              <input type='text' value='{{v_stu_name}}' placeholder='输入宝宝姓名 ' bindinput='stuName' />
+            </view>
+            <view class='item '>
+              <view class='title '>宝宝性别</view>
+              <picker bindchange="bindPickerChange2" range="{{array2}}" class='input'>
+                <view wx:if="{{index2}}">{{array2[index2]}}</view>
+                <view wx:elif="{{i_stu_sex==0}}">女</view>
+                <view wx:elif="{{i_stu_sex==1}}">男</view>
+                <view class='placeholder ' wx:else>选择性别</view>
+              </picker>
+            </view>
+            <view class='item '>
+              <view class='title '>出生日期</view>
+              <picker class='input ' bindchange="bindDateChange" mode="date" value="{{date}}" end="{{today}}">
+                <view wx:if="{{date}}">{{date}}</view>
+                <view wx:elif="{{v_stu_brithday}}">{{v_stu_brithday}}</view>
+                <view class='placeholder ' wx:else>选择出生日期</view>
+              </picker>
+            </view>
+            <view class='item '>
+              <view class='title '>报读年级</view>
+              <picker bindchange="bindPickerChange3" range="{{v_sch_grade}}" class='input '>
+                <view wx:if="{{index3}}">{{v_sch_grade[index3]}}</view>
+                <!-- <view wx:elif="{{v_app_enrolGrade}}">{{v_app_enrolGrade}}</view> -->
+                <view class='placeholder ' wx:else>选择报读年级</view>
+              </picker>
+            </view>
+            <view class='item ' style='margin-top:40px'>
+              <view class='title '>家长姓名</view>
+              <input class='input' value='{{v_par_name}}' placeholder="输入家长姓名" maxlength='12 ' bindinput='parName' />
+            </view>
+            <view class='item '>
+              <view class='title '>家长身份</view>
+              <picker bindchange="bindPickerChange" range="{{array}}" class='input '>
+                <view wx:if="{{index}}">{{array[index]}}</view>
+                <view wx:elif="{{v_par_relation}}">{{v_par_relation}}</view>
+                <view class='placeholder ' wx:else>选择家长身份</view>
+              </picker>
+            </view>
+            <view class='item '>
+              <view class='title '>联系电话</view>
+              <input type='number' value='{{v_par_tel}}' maxlength='11 ' placeholder="输入联系电话" bindinput='parTel' />
+            </view>
+            <view class='item ' bindtap="chooseLocation">
+              <view class='title '>家庭住址</view>
+              <view wx:if="{{v_par_address}}" class='input ellipsis '>{{v_par_address}}</view>
+              <input wx:else placeholder="选择家庭住址(选填)" />
+              <!-- <input type='text ' placeholder='选择家庭住址(选填) ' /> -->
+            </view>
+            <view class='item '>
+              <button formType="submit" class='btn' hover-class='hover '>我要报名</button>
+            </view>
+            <view class='apply' bindtap='createGarden'>我要建园</view>
+          </view>
+        </form>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='silde-wrap '>
+    <view class='item' bindtap='my'>我的</view>
+    <view class='item' bindtap='share'>分享榜</view>
+    <view class='item' bindtap='toApply'>立即报名</view>
+  </view>
+  <!-- <view class='fiexd-footer '> -->
+    <!-- <view class='btn next '>
+      <image src="/image/circle_icon@3x.png" class='icon-share '></image>分享至朋友圈</view> -->
+    <!-- <view class='btn next '>
+    <image src="/image/friend_icon@3x.png" class='icon-share '></image>转发给好友</view> -->
+    <button open-type="share" class='btn next w36 share-btn' style='width:100%;background:#4ab848;color:#fff;'>
+      <image src="/image/friend_icon@3x.png" class='icon-share'></image>转发给好友</button>
+  <!-- </view> -->
+</view>
+<view wx:else class='getUserInfo'>
+  <view class='text'>需要您的授权才能使用哦！</view>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">立即授权</button>
+</view>

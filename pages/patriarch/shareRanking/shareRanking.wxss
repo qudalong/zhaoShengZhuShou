@@ -1,0 +1,51 @@
+.ranking-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ranking-item .number {
+  width: 100rpx;
+  text-align: center;
+}
+
+.ranking-item .head {
+  margin-right: 20rpx;
+}
+
+.ranking-item .head image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.browse-info {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 15rpx;
+}
+
+.top3-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.kindergarten {
+  font-size: 32rpx;
+}
+.my{
+   padding: 0;
+   border-bottom:0;
+   background: #fff;
+}
+.my:last-of-type{
+  width: 100%;
+  padding:  20rpx;
+  
+}
+ .ranking-wrap{
+  margin-top: 10rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  background: #fff;
+} 

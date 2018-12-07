@@ -1,0 +1,51 @@
+.info-list {
+  width: 92%;
+  margin: 30rpx auto;
+}
+
+.info-list .mark {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 100rpx;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item .left-title .time {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #666;
+ 
+}
+
+.info-list .item .left-title .status {
+  margin-left: 20rpx;
+}
+
+.info-list .item .left-title .pass {
+  color: #4ab848;
+}
+
+.info-list .item .left-title .nopass {
+  color: red;
+}
+
+.info-list .item .time {
+ flex: 1;
+ text-align: right;
+ margin-right: 10rpx;
+}
+.ok{
+  border-radius: 0;
+  line-height: 1.2;
+}

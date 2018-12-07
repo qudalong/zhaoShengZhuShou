@@ -1,0 +1,41 @@
+<view class='add-wrap'>
+<!--幼儿园风采图  -->
+  <block wx:if="{{imageURL}}" >
+    <image  class='coverImg' mode='aspectFit' src="{{imageURL}}" bindtap='addImg'></image>
+  </block>
+  <block wx:elif="{{allInfo.v_kindergarten_photo}}" >
+    <image background-size="cover" class='coverImg' src="{{allInfo.v_kindergarten_photo}}" bindtap='addImg'></image>
+  </block>
+  <block wx:else>
+    <image class='add-icon' src="/image/add_img.png" bindtap='addImg'></image>
+    <view>添加一张最好看的图片作为幼儿园风采图吧</view>
+  </block>
+</view>
+<view class='info-wrap'>
+  <view class='item'>
+    <view>
+      <text>*</text>幼儿园名称</view>
+    <input type='text' value='{{allInfo.v_kindergarten_name}}' maxlength='12' bindinput='kindergartenName' />
+  </view>
+  <view class='item'>
+    <view>
+      <text>*</text>联系人名称</view>
+    <input type='text' value='{{allInfo.v_kindergarten_leader_name}}' maxlength='12' bindinput='linkMan' />
+  </view>
+  <view class='item'>
+    <view>
+      <text>*</text>联系人电话</view>
+    <input type='number' value='{{allInfo.v_kindergarten_tel}}' maxlength='11' bindinput='linkTel' />
+  </view>
+  <view class='item'>
+    <view>
+      <text>*</text>幼儿园地址</view>
+    <view class='adress' bindtap="chooseLocation">
+       <block wx:if="{{garden_address}}">{{garden_address}}</block>
+       <block wx:else>{{allInfo.v_kindergarten_address}}</block>
+      <image class='icon-right' src="/image/positioning_btn.png"></image>
+    </view>
+  </view>
+</view>
+<view wx:if="{{disabled}}" class='fiexd-btn btn-init'>提交</view>
+<view wx:else class='fiexd-btn' bindtap='submit' hover-class='hover'>提交</view>

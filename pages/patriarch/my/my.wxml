@@ -1,0 +1,99 @@
+<view wx:if="{{!getUserInfoFail}}">
+<view class='top-bg'>
+  <image class="big-bg" src="/image/nav_big_bg.png"></image>
+  <view class='userinfo-wrap'>
+    <open-data class='userinfo-avatar' type="userAvatarUrl"></open-data>
+    <open-data class='userinfo-nickname' type="userNickName" lang="zh_CN"></open-data>
+    <!-- <image class="userinfo-avatar" src="{{avatarUrl}}"></image>
+    <view class="userinfo-nickname">{{nickName}}</view> -->
+    <picker bindchange="bindPickerChange" range="{{array}}" style='margin-top:10px'>
+      <view wx:if="{{index||index==0}}" class="picker">
+        <text>我是{{array[index]}}</text> >
+      </view>
+      <view wx:else class="picker">
+        <text>我是{{identity}}</text>>
+      </view>
+    </picker>
+  </view>
+</view>
+
+   <!-- <button open-type="share" class='btn next w36 share-btn'>
+      <image src="/image/friend_icon@3x.png" class='icon-share'></image>转发给好友</button> -->
+
+<!--列表信息  -->
+<view class='info-list'>
+  <view wx:if="{{index==0}}">
+    <view wx:if="{{applyList.length}}">
+      <view class='mark'>我的报名</view>
+      <block wx:for="{{applyList}}" wx:key="unique">
+        <view class='item' bindtap='applyDetail' data-id="{{item.id}}">
+          <view class='left-title'>
+            <view>{{item.v_sch_name}}</view>
+            <view class='time'>{{item.v_app_date}}
+              <text wx:if="{{item.v_app_status=='拒绝'}}" class='status nopass'>{{item.v_app_status}}</text>
+              <text wx:elif="{{item.v_app_status=='审核通过'}}" class='status pass'>{{item.v_app_status}}</text>
+              <text wx:else class='status ing'>{{item.v_app_status}}</text>
+            </view>
+          </view>
+          <image class="icon-right" src="/image/icon_right.png"></image>
+        </view>
+      </block>
+    </view>
+    <view class='item' bindtap='myInfo'>
+      <view class='left-title'>我的资料</view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+  </view>
+  <view wx:if="{{index==1}}">
+    <view class='item' bindtap='editInfo'>
+      <view class='left-title'>
+        <text>幼儿园资料编辑</text>
+        <view wx:if="{{updataTime&&updataTime!='null'}}" class='updateTime'>上次编辑时间： {{updataTime}}</view>
+      </view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:if="{{updataTime}}" class='item' bindtap='publicity'>
+      <view class='left-title'>
+        <text>招生宣传</text>
+        <view wx:if="{{v_view_num}}" class='updateTime'>被查看{{v_view_num}}次</view>
+      </view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:else class='item' bindtap='publicity2'>
+      <view class='left-title'>招生宣传</view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:if="{{updataTime}}" class='item' bindtap='enrolManger'>
+      <view class='left-title'>
+        <text>招生管理</text>
+        <view wx:if="{{noCk}}" class='nock'>{{noCk}}条未审核</view>
+      </view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:else class='item' bindtap='publicity2'>
+      <view class='left-title'>
+        <text>招生管理</text>
+      </view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:if="{{updataTime}}" class='item' bindtap='shareRanking'>
+      <view class='left-title'>招生宣传分享榜</view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+    <view wx:else class='item' bindtap='publicity2'>
+      <view class='left-title'>招生宣传分享榜</view>
+      <image class="icon-right" src="/image/icon_right.png"></image>
+    </view>
+  </view>
+  <view class='item' bindtap='ranking' id='#the-id'>
+    <view class='left-title'>魅力园所排行榜
+      <text class='hot'>hot</text>
+    </view>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+</view>
+</view>
+<view wx:else class='getUserInfo'>
+<view class='text'>需要您的授权才能使用哦！</view>
+ <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">立即授权</button>   
+</view>

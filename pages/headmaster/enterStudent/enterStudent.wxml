@@ -1,0 +1,55 @@
+<view class='top-nav'>
+  <view>幼儿园的优势统统告诉家长!</view>
+  <view class='nav'>
+    <view class='line'>
+      <view class="circle one active"></view>
+      <view class='circle two active'></view>
+      <view class='circle three active'></view>
+      <view class='circle four'></view>
+      <view class='active-line active-line2'></view>
+    </view>
+  </view>
+  <view class='nav-text'>
+    <view>园所资源</view>
+    <view>特色教育</view>
+    <view>招生简章</view>
+    <view>园所介绍</view>
+  </view>
+</view>
+<view class='info-wrap'>
+  <view>招生范围</view>
+  <view class='table-title'>
+    <view>年级</view>
+    <view>建议年龄</view>
+    <view>招生人数</view>
+  </view>
+
+  <block wx:for="{{enrolObjectList}}" wx:key="unique">
+    <view class='table-td'>
+      <view>
+        <input type='text' value='{{item.v_grade_name}}' placeholder='点击输入'  data-index="{{index}}" bindinput='gradeName' />
+      </view>
+      <view>
+        <input type='text' value='{{item.v_age_range}}' placeholder='点击输入'  data-index="{{index}}" bindinput='ageRange' />
+      </view>
+      <view>
+        <input type='number' value='{{item.v_enrol_num}}' placeholder='点击输入' data-index="{{index}}" bindinput='input' />
+      </view>
+    </view>
+  </block>
+  <view class='table-td' wx:if="{{enrolObjectList.length<10}}">
+    <view class='definition' bindtap='definition'>+自定义</view>
+    <view></view>
+    <view></view>
+  </view>
+</view>
+<view class='info-wrap placeholder-fixd'>
+  <view>学习费用</view>
+  <textarea class='textarea' value='{{v_kindergarten_fee}}' maxlength='100' bindinput='fee' placeholder='例：1200元/期 (包含两餐一点)'></textarea>
+  <view>优惠活动</view>
+  <textarea class='textarea' value='{{v_kindergarten_activity}}' maxlength='100' bindinput='activity' placeholder='例：即日起至2018年7月10日，凡报名的新生，即可享受学费优惠200元,送书包一个，校服一套。7月10日优惠活动截止！名额有限，要抓紧时间报名哦！'></textarea>
+</view>
+<view class='fiexd-footer'>
+  <view class='btn save' bindtap='save'>保存</view>
+  <view class='btn next' bindtap='next'>下一步</view>
+</view>

@@ -1,0 +1,43 @@
+<view wx:if="{{allInfo.length}}">
+  <view wx:for="{{allInfo}}" wx:key="unique">
+    <view wx:if="{{item.natype==0}}" class="ranking-item my">
+      <view class='number'>
+        <image wx:if="{{item.rowun==1}}" class='top3-icon' src="/image/ranking_one.png"></image>
+        <image wx:elif="{{item.rowun==2}}" class='top3-icon' src="/image/ranking_two.png"></image>
+        <image wx:elif="{{item.rowun==3}}" class='top3-icon' src="/image/ranking_three.png"></image>
+        <view wx:else>{{item.rowun}}</view>
+      </view>
+      <view class="head">
+        <image src="{{item.sharePhoto}}"></image>
+      </view>
+      <view>
+        <view class='kindergarten'>{{item.sharenickname}}</view>
+        <view class='browse-info'>围观人数：{{item.num}}</view>
+      </view>
+    </view>
+  </view>
+  <!--榜单  -->
+  <view class='ranking-wrap'>
+    <block wx:for="{{allInfo}}" wx:key="unique">
+      <view class='ranking-item' wx:if="{{item&&item.natype==null}}">
+        <view class='number'>
+          <image wx:if="{{index==0}}" class='top3-icon' src="/image/ranking_one.png"></image>
+          <image wx:elif="{{index==1}}" class='top3-icon' src="/image/ranking_two.png"></image>
+          <image wx:elif="{{index==2}}" class='top3-icon' src="/image/ranking_three.png"></image>
+          <view wx:else>{{item.rowun}}</view>
+        </view>
+        <view class="head">
+          <image src="{{item.sharePhoto}}"></image>
+        </view>
+        <view>
+          <view class='kindergarten'>{{item.sharenickname}}</view>
+          <view class='browse-info'>围观人数：{{item.num}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view wx:else class="empty_bg">
+  <image class='empty' mode='widthFix' src="/image/empty_bg.png"></image>
+  <view>暂无内容哦</view>
+</view>

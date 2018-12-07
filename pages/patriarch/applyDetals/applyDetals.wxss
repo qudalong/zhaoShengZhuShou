@@ -1,0 +1,76 @@
+.top-wrap{
+ background: #fff;
+ font-size: 32rpx;
+}
+.top-wrap .top {
+  height: 130rpx;
+  display: flex;
+  align-items: center;
+   border-bottom: 1px solid #f0f0f0;
+}
+
+.top-wrap .top .status {
+  width: 200rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  font-weight: bold;
+  text-align: center;
+  border-right: 1px solid #f0f0f0;
+}
+
+.garden {
+   font-weight: bold;
+  flex: 1;
+  padding-left:30rpx;
+}
+.garden .time{
+  margin-top: 10rpx;
+ color: #666;
+  font-size: 28rpx;
+}
+.bottom{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.bottom .tel{
+  height: 100rpx;
+ border-right: 1px solid #f0f0f0;
+}
+.bottom view{
+  flex: 1;
+  justify-content: center;
+   display: flex;
+   align-items: center;
+}
+/*资料  */
+.info-list{
+  width:88%;
+  margin: 30rpx auto;
+  border-radius: 8rpx;
+  background: #fff;
+  line-height: 1.6;
+  padding: 20rpx;
+  font-size: 30rpx;
+  box-shadow: 1px 1px 4px #ccc;
+}
+.info-list .item:first-of-type{
+ border-bottom: 1px solid #f0f0f0;
+ padding-bottom: 20rpx;
+ margin-bottom: 20rpx;
+}
+.info-list .item .title{
+ font-weight: bold;
+  font-size: 32rpx;
+}
+.ing {
+  color: #666;
+}
+
+.pass {
+  color: #4ab848;
+}
+
+.nopass {
+  color: red;
+}

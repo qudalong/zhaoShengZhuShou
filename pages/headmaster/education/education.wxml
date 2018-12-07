@@ -1,0 +1,51 @@
+<view class='top-nav'>
+  <view>幼儿园的优势统统告诉家长!</view>
+  <view class='nav'>
+    <view class='line'>
+      <view class='circle one active'></view>
+      <view class='circle two active'></view>
+      <view class='circle three'></view>
+      <view class='circle four'></view>
+      <view class='active-line'></view>
+    </view>
+  </view>
+  <view class='nav-text'>
+    <view>园所资源</view>
+    <view>特色教育</view>
+    <view>招生简章</view>
+    <view>园所介绍</view>
+  </view>
+</view>
+<view class='info-wrap'>
+  <view>幼儿园特色</view>
+  <view class='item-wrap'>
+    <block wx:for="{{array1}}" wx:key="unique">
+      <view wx:if="{{index<11}}" class="item {{item.status==1 ? 'active' : ''}}" data-key="{{index}}" bindtap="swichItem" data-text="{{item.name}}">{{item.name}}</view>
+      <view wx:else class="item itemZdy {{item.status==1 ? 'active' : ''}}" data-key="{{index}}" bindtap="swichItem" data-text="{{item.name}}">{{item.name}}
+       <image data-key="{{index}}" catchtap="deleteItem" class='close' src="/image/down_btn.png"></image> 
+      <!-- <view data-index="{{index}}" bindtap="delete" class='close'>x</view> -->
+      </view>
+    </block>
+    <view wx:if="{{array1.length<21}}" class='item' bindtap='zdy'>+自定义</view>
+  </view>
+</view>
+<view class='info-wrap placeholder-fixd'>
+  <view>添加几张教室图片展示一下教学环境吧(最多可传9张)</view>
+  <view class='item-wrap'>
+    <view class='items' wx:for="{{array}}" wx:key="unique" wx:for-item="image">
+      <image data-url="{{image}}" data-index="{{index}}" data-t="maker" bindtap="previewImage" class='add-img' src="{{image}}" mode="scaleToFill"></image>
+      <image data-index="{{index}}" data-t="maker" bindtap="delete" class='close' src="/image/down_btn.png"></image>
+    </view>
+    <image wx:if="{{array.length<9}}"  bindtap='addImg' class='add-img' src="/image/add_img_big.png"></image>
+  </view>
+</view>
+<view class='fiexd-footer'>
+  <view class='btn save' bindtap='save'>保存</view>
+  <view class='btn next' bindtap='next'>下一步</view>
+</view>
+<!--自定义  -->
+<view wx:if="{{zdy}}" catchtap='closeDialog' class='dialog'></view>
+<view wx:if="{{zdy}}" class='zdy'>
+  <input maxlength='5' bindinput='enter' placeholder='请输入标签(不超过五个字)' />
+  <view class='ok' catchtap='ok'>确定</view>
+</view>

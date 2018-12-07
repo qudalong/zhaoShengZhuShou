@@ -1,0 +1,170 @@
+<view class='page'>
+  <!-- <image class="bg" src="/image/bg@3x.png" background-size="cover"></image> -->
+  <view class='content-wrap'>
+    <view class='kindergarten'>{{allInfo.v_kindergarten_name}}</view>
+    <view class='kindergarten tr'>—欢迎您</view>
+    <!-- 乐贝通幼儿园 -->
+    <view class='item-wrap1'>
+      <image class='flower' mode='aspectFill' src="/image/flowers@3x.png" background-size="cover"></image>
+      <view class='cover'>
+        <image wx:if="{{allInfo.v_kindergarten_photo}}" src="{{allInfo.v_kindergarten_photo}}"></image>
+        <image wx:else src="/image/img_bg@3x.png" background-size="cover"></image>
+        <view class='name'>{{allInfo.v_kindergarten_name}}</view>
+      </view>
+      <view class='info'>
+        <view class='name'>幼儿园信息</view>
+        <view class='list'>
+          <view>
+            <image src="/image/contact_icon@3x.png" class='icon'></image>招生联系人：{{allInfo.v_kindergarten_leader_name}}
+          </view>
+          <view>
+            <image src="/image/phone_icon@3x.png" class='icon'></image> 联系电话：{{allInfo.v_kindergarten_tel}}</view>
+          <view class='adress'>
+            <image src="/image/positioning_icon@3x.png" class='icon'></image>
+            <view class='flex details'>{{allInfo.v_kindergarten_address}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--园所资源  -->
+    <view wx:if="{{allInfo.v_kindergarten_level || allInfo.v_kindergarten_nature}}">
+      <view class='title-item'>
+        <image src="/image/title_bg@3x.png" class='title-bg'></image>
+        <view class='title'>园所资质</view>
+      </view>
+      <view class='item-wrap1'>
+        <view class='mark-wrap'>
+          <view wx:if="{{allInfo.v_kindergarten_level}}">{{allInfo.v_kindergarten_level}}</view>
+          <view wx:if="{{allInfo.v_kindergarten_nature}}">{{allInfo.v_kindergarten_nature}}</view>
+        </view>
+        <view wx:if="{{allInfo.v_kindergarten_level=='规范化'}}" class='content-item'>
+          <image class="bang"  mode='aspectFit' src="/image/level_specification.png"></image>
+          <view class='content'>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+          </view>
+        </view>
+        <view wx:if="{{allInfo.v_kindergarten_level=='区级'}}" class='content-item'>
+          <image class="bang"  mode='aspectFit' src="/image/level_area.png"></image>
+          <view class='content'>本院经区教育局评估，在办园条件、园务管理、安全卫生保健、教育工作、家长与社区工作等方面达到区级示范性幼儿园标准。</view>
+        </view>
+        <view wx:if="{{allInfo.v_kindergarten_level=='省级'}}" class='content-item'>
+          <image class="bang"  mode='aspectFit' src="/image/level_province.png"></image>
+          <view class='content'>本园经省教育厅评估，在办园条件、园舍建设、设施设备、机构管理和队伍建设、卫生保健工作等方面达到省级示范性幼儿园标准。</view>
+        </view>
+        <view wx:if="{{allInfo.v_kindergarten_level=='市级'}}" class='content-item'>
+          <image class="bang"  mode='aspectFit' src="/image/level_city.png"></image>
+          <view class='content'>本园竟市教育局评估，在办园思想、办园条件、园务管理、队伍建设、教育工作、卫生保健及餐饮安全等方面达到市级示范性幼儿园标准。</view>
+        </view>
+        <view wx:if="{{allInfo.v_kindergarten_level=='办园许可证'}}" class='content-item'>
+          <image class="bang" src="/image/level_license.png"></image>
+          <view class='content'>本园经教育局评估，在办园规模、园舍建设、设备设施、人员配备、园务管理、队伍建设、卫生保健、教育教学等方面均达到办园要求，已获得办园许可证。</view>
+        </view>
+      </view>
+    </view>
+    <!--特色教育-->
+    <view wx:if="{{allInfo.v_kindergarten_feature}}">
+      <view class='title-item'>
+        <image src="/image/title_bg@3x.png" class='title-bg'></image>
+        <view class='title'>特色教育</view>
+      </view>
+      <view class='item-wrap1'>
+        <view class='mark-wrap'>
+          <view class='it' wx:for="{{ts}}" wx:key="unique">{{item}}</view>
+        </view>
+        <view class='scroll-img' wx:if="{{jiaoyu.length}}">
+          <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+            <view wx:if="{{jiaoyu.length}}" class="itemImg {{jiaoyu.length==1 ? 'itemImg2':''}} " wx:for="{{jiaoyu}}" wx:key="unique" bindtap='previewImage' data-url="{{item}}">
+              <image src="{{item}}" mode='aspectFill' class='item'></image>
+              <text class='txt'>{{allInfo.v_kindergarten_name}}</text>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+    <!--招生简章-->
+    <view class='title-item'>
+      <image src="/image/title_bg@3x.png" class='title-bg'></image>
+      <view class='title'>招生简章</view>
+    </view>
+    <view class='item-wrap1'>
+      <view>
+        <image src="/image/admissions_icon@3x.png" class='icon'></image> 招生范围</view>
+      <view class='table-title'>
+        <view>年级</view>
+        <view>建议年龄</view>
+        <view>招生人数</view>
+      </view>
+      <view class='table-td' wx:for="{{allInfo.enrolObjectList}}" wx:key="unique">
+        <view>{{item.v_grade_name}}</view>
+        <view>{{item.v_age_range}}</view>
+        <view>{{item.v_enrol_num}}</view>
+      </view>
+      <block wx:if='{{allInfo.v_kindergarten_fee}}'>
+        <view class='row'>
+          <image src="/image/money_icon@3x.png" class='icon'></image> 学习费用</view>
+        <view class='border'>{{allInfo.v_kindergarten_fee}}</view>
+      </block>
+      <block wx:if='{{allInfo.v_kindergarten_activity}}'>
+        <view class='row'>
+          <image src="/image/activity_icon@3x.png" class='icon'></image> 优惠活动</view>
+        <view class='border'>{{allInfo.v_kindergarten_activity}}</view>
+      </block>
+    </view>
+    <!--园所介绍-->
+    <block wx:if='{{allInfo.v_kindergarten_info}}'>
+      <view class='title-item'>
+        <image src="/image/title_bg@3x.png" class='title-bg'></image>
+        <view class='title'>园所介绍</view>
+      </view>
+      <view class='item-wrap1 tc'>
+        <image src="/image/title_introduction@3x.png"  mode='aspectFit' class='flower-title'></image>
+        <view class='details c0 limit4 details2'>{{allInfo.v_kindergarten_info}}
+          <view class='more' bindtap='more' data-desc="{{allInfo.v_kindergarten_info}}"  wx:if='{{allInfo.v_kindergarten_info.length>80}}'>
+            <text style='color:#000'>...</text> 更多
+          </view>
+        </view>
+      </view>
+    </block>
+    <!--亲子活动-->
+    <view class='item-wrap1 tc'>
+      <image wx:if="{{qinzi.length}}"  mode='aspectFit' src="/image/title_children@3x.png" class='flower-title flower-title1'></image>
+      <view class='scroll-img' wx:if="{{qinzi.length}}">
+        <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+          <view class="itemImg  {{qinzi.length==1 ? 'itemImg2':''}}" wx:for="{{qinzi}}" wx:key="unique" bindtap='previewImage2' data-url="{{item}}">
+            <image src="{{item}}" mode='aspectFill' class='item'></image>
+            <text class='txt'>{{allInfo.v_kindergarten_name}}</text>
+          </view>
+        </scroll-view>
+      </view>
+      <image wx:if="{{shipu.length}}" mode='aspectFit' src="/image/title_recipe@3x.png" class='flower-title flower-title1 t20'></image>
+      <view class='scroll-img' wx:if="{{shipu.length}}">
+        <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+          <view class="itemImg  {{shipu.length==1 ? 'itemImg2':''}}" wx:for="{{shipu}}" wx:key="unique" bindtap='previewImage3' data-url="{{item}}">
+            <image src="{{item}}" mode='aspectFill' class='item'></image>
+            <text class='txt'>{{allInfo.v_kindergarten_name}}</text>
+          </view>
+        </scroll-view>
+      </view>
+      <image wx:if="{{shougong.length}}" mode='aspectFit' src="/image/title_manual@3x.png" class='flower-title flower-title1 t20'></image>
+      <view class='scroll-img' wx:if="{{shougong.length}}">
+        <scroll-view scroll-x="true" style="height:110px; white-space: nowrap;">
+          <view class="itemImg  {{shougong.length==1 ? 'itemImg2':''}}" wx:for="{{shougong}}" wx:key="unique" bindtap='previewImage4' data-url="{{item}}">
+            <image src="{{item}}" mode='aspectFill' class='item'></image>
+            <text class='txt'>{{allInfo.v_kindergarten_name}}</text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='fiexd-footer'>
+  <view class='item' bindtap='editor'>
+    <image src="/image/editor_icon@3x.png" class='icon-share'></image>
+    <view>编辑</view>
+  </view>
+  <!-- <view class='item'>
+    <image src="/image/share_icon@3x.png" class='icon-share'></image>
+    <view>分享</view>
+  </view> -->
+  <button open-type="share" class='btn next w36 share-btn'>
+    <image src="/image/friend_icon@3x.png" class='icon-share'></image>转发给好友</button>
+</view>

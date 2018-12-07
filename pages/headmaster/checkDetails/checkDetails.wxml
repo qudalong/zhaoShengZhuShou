@@ -1,0 +1,32 @@
+<view class='info-list' wx:for="{{dataList}}" wx:key="unique">
+  <view class='top' wx:if="{{item.v_state=='已通过'}}">
+    <view class='title'>
+      <icon type="success" size="20" />已通过审核</view>
+    <view class='time'>入园参观时间：{{item.v_visit_time}}</view>
+  </view>
+  <view class='top' wx:else>
+    <view class='title'><icon type="cancel" size="20" />未通过审核</view>
+    <view class='time'>{{item.dtm_apply_time}}</view>
+  </view>
+  <view class='item bottom'>
+    <view class='title'>家长资料：</view>
+    <view>姓名：{{item.v_student_parent_identity}}</view>
+    <view>联系电话：{{item.v_parent_tel}}</view>
+    <view>身份：{{item.v_parent_identity}}</view>
+    <view>家庭住址：{{item.v_parent_addres}}</view>
+  </view>
+  <view class='item'>
+    <view class='title'>宝宝资料：</view>
+    <view>姓名：{{item.v_student_name}}</view>
+    <view>性别：
+      <text wx:if="{{item.v_student_sex==1}}">男</text>
+      <text wx:else>女</text>
+    </view>
+    <view>出生日期：{{item.v_student_birthday}}</view>
+    <view>报读班级：{{item.v_grade_name}}</view>
+  </view>
+</view>
+
+<view class='fiexd' bindtap='visitime' data-apply-id="{{dataList[0].i_apply_id}}" data-parent="{{dataList[0].v_student_parent_identity}}" wx:if="{{dataList[0].v_state=='未通过'}}">
+  <view class='visit'>重新安排参观时间</view>
+</view>

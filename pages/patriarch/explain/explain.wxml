@@ -1,0 +1,9 @@
+<!-- <view wx:if="{{detals}}">{{detals}}</view> -->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='time'>
+  <view>活动起始时间：</view>
+  <view>{{all.v_start_time}}—{{all.v_end_time}}</view>
+</view>
+<view class="container wxParse">
+  <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
+</view>

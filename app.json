@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/patriarch/my/my",
+    "pages/canvas/canvas",
+    "pages/headmaster/intro/intro",
+    "pages/headmaster/education/education",
+    "pages/headmaster/resource/resource",
+    "pages/headmaster/publicity/publicity",
+    "pages/patriarch/publicity/publicity",
+    "pages/headmaster/enterStudent/enterStudent",
+    "pages/headmaster/introduction/introduction",
+    "pages/headmaster/kindergartenInfo/kindergartenInfo",
+    "pages/headmaster/recruitStudent/recruitStudent",
+    "pages/patriarch/pic/pic",
+    "pages/index/index",
+    "pages/patriarch/myInfo/myInfo",
+    "pages/headmaster/visitTime/visitTime",
+    "pages/patriarch/explain/explain",
+    "pages/headmaster/nocheckDetails/nocheckDetails",
+    "pages/headmaster/checkDetails/checkDetails",
+    "pages/patriarch/applyDetals/applyDetals",
+
+    "pages/patriarch/ranking/ranking",
+    "pages/patriarch/submitSuccess/submitSuccess",
+    "pages/patriarch/shareRanking/shareRanking"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4ab848",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "#fff"
+  }
+ 
+}

@@ -1,0 +1,54 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未审核</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已审核</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <!-- 未审核 -->
+  <swiper-item style="overflow:auto">
+    <!--列表信息  -->
+    <view class='info-list'>
+      <block wx:if="{{dataList.length}}">
+        <view class='mark'>已报名家长</view>
+        <view wx:for="{{dataList}}" wx:key="unique">
+          <view class='item' bindtap='detailInfoNo' data-apply-id="{{item.i_apply_id}}">
+            <view class='left-title'>
+              <view>{{item.v_student_parent_identity}}</view>
+              <view class='time'>{{item.v_grade_name}} {{item.dtm_apply_time}}</view>
+            </view>
+            <image class="icon-right" src="/image/icon_right.png"></image>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty_bg">
+        <image class='empty' mode='widthFix' src="/image/empty_bg.png"></image>
+        <view>暂无内容哦</view>
+      </view>
+    </view>
+  </swiper-item>
+  <!-- 已审核 -->
+  <swiper-item style="overflow:auto">
+    <view class='info-list'>
+      <block wx:if="{{dataList.length}}">
+        <view class='mark'>已审核的家长</view>
+        <block wx:for="{{dataList}}" wx:key="unique">
+          <view class='item' bindtap='detailInfo' data-apply-id="{{item.i_apply_id}}">
+            <view class='left-title'>
+              <view>{{item.v_student_parent_identity}}</view>
+              <view class='time'>{{item.v_grade_name}} {{item.v_check_time}}
+              </view>
+            </view>
+            <view class='right-wrap'>
+              <text class="status {{item.v_state=='未通过'? 'nopass' : 'pass'}}">{{item.v_state}}</text>
+              <image class="icon-right" src="/image/icon_right.png"></image>
+            </view>
+          </view>
+        </block>
+      </block>
+      <view wx:else class="empty_bg">
+        <image class='empty' mode='widthFix' src="/image/empty_bg.png"></image>
+        <view>暂无内容哦</view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

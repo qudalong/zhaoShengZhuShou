@@ -1,0 +1,76 @@
+/* pages/headmaster/nocheckDetails/nocheckDetails.wxss */.info-list {
+  width: 88%;
+  margin: 30rpx auto;
+  border-radius: 8rpx;
+  background: #fff;
+  line-height: 1.6;
+  padding: 20rpx;
+  font-size: 30rpx;
+  box-shadow: 1px 1px 4px #ccc;
+  margin-bottom: 20rpx;
+}
+
+
+.info-list .item.bottom {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-list .item .title {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.fiexd {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+  border-top: 1px solid #f0f0f0;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  background: #fff;
+}
+
+.fiexd view {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+}
+.fiexd .button {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  border-radius: 0;
+  background: #fff;
+  z-index: 9999;
+  padding: 0;
+}
+button::after{
+  border: 0
+}
+
+.visit {
+  background: #4ab848;
+  color: #fff;
+  height: 100%;
+}
+.top{
+  margin-bottom: 30rpx;
+}   
+.top icon{
+  vertical-align: sub;
+  margin-right: 10rpx;
+} 
+.top .time{
+  color: #666;
+  font-size: 30rpx;
+} 
+.top .title{
+ font-weight: bold;
+ font-size: 34rpx;
+} 

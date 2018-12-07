@@ -1,0 +1,26 @@
+<form bindsubmit="noPass" report-submit="true">
+<view class='info-list' wx:for="{{dataList}}" wx:key="*this">
+  <!--资料列表  -->
+  <view class='item bottom'>
+    <view class='title'>家长资料：</view>
+    <view>姓名：{{item.v_parent_name}}</view>
+    <view>联系电话：{{item.v_parent_tel}}</view>
+    <view>身份：{{item.v_parent_identity}}</view>
+    <view>家庭住址：{{item.v_parent_addres}}</view>
+  </view>
+  <view class='item'>
+    <view class='title'>宝宝资料：</view>
+    <view>姓名：{{item.v_student_name}}</view>
+    <view>性别：
+      <text wx:if="{{item.v_student_sex==1}}">男</text>
+      <text wx:else>女</text>
+    </view>
+    <view>出生日期：{{item.v_student_birthday}}</view>
+    <view>报读班级：{{item.v_grade_name}}</view>
+  </view>
+</view>
+<view class='fiexd'>
+   <button class='button' formType="submit" data-apply-id="{{dataList[0].i_apply_id}}" >拒绝该家长</button> 
+  <view class='visit' bindtap='visitime' data-apply-id="{{dataList[0].i_apply_id}}" data-parent="{{dataList[0].v_student_parent_identity}}">安排参观时间</view>
+</view>
+</form>

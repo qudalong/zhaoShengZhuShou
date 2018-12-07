@@ -1,0 +1,19 @@
+<form bindsubmit="arrange" report-submit="true">
+<view class='info-list'>
+  <view class='item'>
+    <view class='left-title'>选择参观日期</view>
+    <picker bindchange="bindDateChange" mode="date" value="{{date}}" start="{{date}}"  class='time'>
+      <view>{{date}}</view>
+    </picker>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+  <view class='item'>
+    <view class='left-title'>选择参观时间</view>
+    <picker bindchange="bindTiemChange" mode="time" value="{{time}}"  class='time'>
+      <view>{{time}}</view>
+    </picker>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+</view>
+<button formType="submit" class='fiexd-btn ok'>确认安排</button>
+</form>

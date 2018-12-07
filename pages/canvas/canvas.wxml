@@ -1,0 +1,2 @@
+<canvas canvas-id="myCanvas"/>
+<button bindtap='save'>保存到相册</button>

@@ -1,0 +1,41 @@
+<view class='top-wrap'>
+  <view class='top'>
+    <view wx:if="{{detail.v_app_status=='拒绝'}}" class='status nopass'>{{detail.v_app_status}}</view>
+    <view wx:elif="{{detail.v_app_status=='审核通过'}}" class='status pass'>{{detail.v_app_status}}</view>
+    <view wx:else class='status ing'>{{detail.v_app_status}}</view>
+    <view class='garden'>
+      <view>{{detail.v_sch_name}}</view>
+      <view wx:if="{{detail.v_app_status=='审核通过'}}"  class='time'>
+      <text >参观园所时间</text>
+      {{detail.v_visit_date}}</view>
+      <view wx:else  class='time'>{{detail.v_app_date}}</view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='tel c' bindtap='bitphone'>
+      <image class="icon-right" src="/image/phone_btn.png"></image>{{detail.v_sch_tel}}</view>
+    <view bindtap='toPublic' class='c'>访问幼儿园
+      <image class="icon-right" src="/image/icon_right_green.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 资料列表 -->
+<view class='info-list'>
+  <view class='item'>
+    <view class='title'>家长资料：</view>
+    <view>姓名：{{detail.v_par_name}}</view>
+    <view>联系电话：{{detail.v_par_tel}}</view>
+    <view>身份：{{detail.v_par_relation}}</view>
+    <view>家庭住址：{{detail.v_par_address}}</view>
+  </view>
+  <view class='item'>
+    <view class='title'>宝宝资料：</view>
+    <view>姓名：{{detail.v_stu_name}}</view>
+    <view>性别：
+      <text wx:if="{{detail.i_stu_sex}}">男</text>
+      <text wx:else>女</text>
+    </view>
+    <view>出生日期：{{detail.v_stu_brithday}}</view>
+    <view>报读班级：{{detail.v_app_enrolGrade}}</view>
+  </view>
+</view>

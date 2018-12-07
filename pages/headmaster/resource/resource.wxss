@@ -1,0 +1,23 @@
+
+.content-item{
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding: 50rpx;
+  margin-top: 50rpx;
+}
+.content-item image.bang{
+  width: 150rpx;
+  height:150rpx;
+  margin: 0;
+  padding: 0;
+  margin-right: 20rpx;
+}
+.content{
+  text-align: justify;
+  line-height: 1.4;
+  flex: 1
+}
+.info-wrap{
+  /* margin-bottom: 120rpx; */
+}

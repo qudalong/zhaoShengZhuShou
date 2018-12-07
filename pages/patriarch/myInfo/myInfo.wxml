@@ -1,0 +1,67 @@
+<view class='info-list'>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>家长姓名
+    </view>
+    <input class='input' value='{{seleInfo.v_par_name}}' placeholder="请输入"  maxlength='12'  bindinput='parName'  />
+  </view>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>家长身份
+    </view>
+    <picker bindchange="bindPickerChange" range="{{array}}" class='input'>
+      <view wx:if="{{index}}">{{array[index]}}</view>
+      <view wx:elif="{{seleInfo.v_par_relation}}">{{seleInfo.v_par_relation}}</view>
+      <view wx:else  class='placeholder' >请选择</view>
+    </picker>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>家长电话
+    </view>
+    <input type='number' value='{{seleInfo.v_par_tel}}' class='input'  maxlength='11' placeholder="请输入" bindinput='parTel' />
+  </view>
+  <view class='item' bindtap="chooseLocation">
+    <view class='title'>
+      <text></text>家庭住址</view>
+    <view wx:if="{{v_par_address}}" class='input ellipsis'>{{v_par_address}}</view>
+    <view wx:elif="{{seleInfo.v_par_address}}" class='input ellipsis'>{{seleInfo.v_par_address}}</view>
+    <input wx:else class='input' placeholder="请输入" />
+    <image class="icon-right" src="/image/positioning_btn.png"></image>
+  </view>
+</view>
+<view class='info-list mt10'>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>宝宝姓名
+    </view>
+    <input class='input' value='{{seleInfo.v_stu_name}}' placeholder="请输入" bindinput='stuName'  />
+  </view>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>宝宝性别
+    </view>
+    <picker bindchange="bindPickerChange2" range="{{array2}}" class='input'>
+      <view wx:if="{{index2}}">{{array2[index2]}}</view>
+       <view wx:elif="{{seleInfo.i_stu_sex==0}}">女</view>
+       <view wx:elif="{{seleInfo.i_stu_sex==1}}">男</view>
+      <view class='placeholder' wx:else>请选择</view>
+    </picker>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+  <view class='item'>
+    <view class='title'>
+      <text>*</text>出生日期
+    </view>
+    <picker bindchange="bindDateChange" mode="date" value="{{date}}"  end="{{today}}" class='input'>
+      <view wx:if="{{date}}">{{date}}</view>
+      <view wx:elif="{{seleInfo.v_stu_brithday}}">{{seleInfo.v_stu_brithday}}</view>
+      <view class='placeholder' wx:else>请选择</view>
+    </picker>
+    <image class="icon-right" src="/image/icon_right.png"></image>
+  </view>
+</view>
+<view wx:if="{{disabled}}" class='fiexd-btn btn-init' >保存</view>
+ <!-- <view wx:if="{{seleInfo.v_par_name}}" class='fiexd-btn ' bindtap='saveInfo' hover-class='hover'>保存</view>  -->
+<view wx:else class='fiexd-btn ' bindtap='saveInfo' hover-class='hover'>保存</view>

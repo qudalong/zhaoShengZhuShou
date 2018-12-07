@@ -1,0 +1,57 @@
+<view class='top-nav'>
+  <view>幼儿园的优势统统告诉家长!</view>
+  <view class='nav'>
+    <view class='line'>
+      <view class="circle one active"></view>
+      <view class='circle two active'></view>
+      <view class='circle three active'></view>
+      <view class='circle four active'></view>
+      <view class='active-line active-line3'></view>
+    </view>
+  </view>
+  <view class='nav-text'>
+    <view>园所资源</view>
+    <view>特色教育</view>
+    <view>招生简章</view>
+    <view>园所介绍</view>
+  </view>
+</view>
+
+<view class='info-wrap '>
+  <view>幼儿园介绍</view>
+  <textarea class='textarea' value='{{v_kindergarten_info}}' maxlength='1000' bindinput='fee' placeholder=''></textarea>
+</view>
+<view class='info-wrap'>
+  <view class='mark'>添加几张图片展示一下教学环境吧(最多9张)</view>
+  <view class='item-wrap'>
+    <view  class='items' wx:for="{{array}}" wx:key="unique" wx:for-item="image">
+      <image data-url="{{image}}" data-index="{{index}}" data-t="maker" bindtap="previewImage" class='add-img' src="{{image}}" mode="scaleToFill"></image>
+      <image data-index="{{index}}" data-t="maker" bindtap="delete" class='close' src="/image/down_btn.png"></image>
+    </view>
+    <image wx:if="{{array.length<9}}" bindtap='addImg' class='add-img' src="/image/add_img_big.png"></image>
+  </view>
+</view>
+<view class='info-wrap'>
+  <view class='mark'>家长很关心孩子在幼儿园的每日食谱哦(最多9张)</view>
+  <view class='item-wrap'>
+    <view  class='items' wx:for="{{array2}}" wx:key="unique" wx:for-item="image">
+      <image data-url="{{image}}" data-index="{{index}}" data-t="maker" bindtap="previewImage2" class='add-img' src="{{image}}" mode="scaleToFill"></image>
+      <image data-index="{{index}}" data-t="maker" bindtap="delete2" class='close' src="/image/down_btn.png"></image>
+    </view>
+    <image wx:if="{{array2.length<9}}" bindtap='addImg2' class='add-img' src="/image/add_img_big.png"></image>
+  </view>
+</view>
+<view class='info-wrap placeholder-fixd'>
+  <view class='mark'>手工作品多漂亮(最多9张)</view>
+  <view class='item-wrap'>
+    <view  class='items' wx:for="{{array3}}" wx:key="unique" wx:for-item="image">
+      <image data-url="{{image}}" data-index="{{index}}" data-t="maker" bindtap="previewImage3" class='add-img' src="{{image}}" mode="scaleToFill"></image>
+      <image data-index="{{index}}" data-t="maker" bindtap="delete3" class='close' src="/image/down_btn.png"></image>
+    </view>
+    <image wx:if="{{array3.length<9}}" bindtap='addImg3' class='add-img' src="/image/add_img_big.png"></image>
+  </view>
+</view>
+<view class='fiexd-footer'>
+  <view class='btn save' bindtap='save'>保存</view>
+  <view class='btn next' bindtap='next'>完成</view>
+</view>

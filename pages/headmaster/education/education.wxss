@@ -1,0 +1,35 @@
+.item-wrap{
+  margin: 20rpx 0
+}
+.zdy{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  font-size: 30rpx;
+  z-index: 9999999999;
+}
+.zdy input{
+  flex: 1;
+}
+.zdy .ok{
+  height: 100%;
+  width: 100px;
+  text-align: center;
+}
+.dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999999999999999999
+}

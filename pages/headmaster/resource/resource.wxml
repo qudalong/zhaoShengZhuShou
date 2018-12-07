@@ -1,0 +1,60 @@
+<view class='top-nav'>
+  <view>幼儿园的优势统统告诉家长!</view>
+  <view class='nav'>
+    <view class='line'>
+      <view class="circle one active"></view>
+      <view class='circle two'></view>
+      <view class='circle three'></view>
+      <view class='circle four'></view>
+    </view>
+  </view>
+  <view class='nav-text'>
+    <view>园所资源</view>
+    <view>特色教育</view>
+    <view>招生简章</view>
+    <view>园所介绍</view>
+  </view>
+</view>
+<view class='info-wrap'>
+  <view>幼儿园名称 (单选)</view>
+  <view class='item-wrap'>
+    <block wx:for="{{array}}" wx:key="item">
+      <view class="item {{item.status==1 ? 'active' : ''}}" data-current="{{index}}" bindtap="swichItem" data-text="{{item.name}}">{{item.name}}</view>
+    </block>
+  </view>
+</view>
+<view class='info-wrap placeholder-fixd'>
+  <view>幼儿园评级 (单选)</view>
+  <view class='item-wrap'>
+    <block wx:for="{{array2}}" wx:key="item">
+      <view class="item {{item.status==1 ? 'active' : ''}}" data-current="{{index}}" bindtap="swichItem2" data-text="{{item.name}}">{{item.name}}</view>
+    </block>
+  </view>
+
+  <view wx:if="{{currentTab2==0}}" class='content-item'>
+    <image class="bang" mode='aspectFit'  src="/image/level_specification.png"></image>
+    <view class='content'>本园经市教育局评估，在办园规模、园舍建设、设施设备、人员配备、园务管理、队伍建设、卫生保健、教育教学、家长与社区工作等方面达到规范化城市幼儿园标准
+    </view>
+  </view>
+  <view wx:if="{{currentTab2==1}}" class='content-item'>
+    <image class="bang" mode='aspectFit' src="/image/level_area.png"></image>
+    <view class='content'>本院经区教育局评估，在办园条件、园务管理、安全卫生保健、教育工作、家长与社区工作等方面达到区级示范性幼儿园标准。</view>
+  </view>
+  <view wx:if="{{currentTab2==2}}" class='content-item'>
+    <image class="bang" mode='aspectFit' src="/image/level_province.png"></image>
+    <view class='content'>本园经省教育厅评估，在办园条件、园舍建设、设施设备、机构管理和队伍建设、卫生保健工作等方面达到省级示范性幼儿园标准。</view>
+  </view>
+  <view wx:if="{{currentTab2==3}}" class='content-item'>
+    <image class="bang" mode='aspectFit' src="/image/level_city.png"></image>
+    <view class='content'>本园经市教育局评估，在办园思想、办园条件、园务管理、队伍建设、教育工作、卫生保健及餐饮安全等方面达到市级示范性幼儿园标准。</view>
+  </view>
+  <view wx:if="{{currentTab2==4}}" class='content-item'>
+    <image class="bang" mode='aspectFit' src="/image/level_license.png"></image>
+    <view class='content'>本园经教育局评估，在办园规模、园舍建设、设备设施、人员配备、园务管理、队伍建设、卫生保健、教育教学等方面均达到办园要求，已获得办园许可证。</view>
+  </view>
+
+</view>
+<view class='fiexd-footer'>
+  <view class='btn save' bindtap='save'>保存</view>
+  <view class='btn next' bindtap='next'>下一步</view>
+</view>

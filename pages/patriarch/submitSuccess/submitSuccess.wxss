@@ -1,0 +1,31 @@
+.success-wrap {
+  margin-top: 30%;
+  text-align: center;
+  padding: 0 50rpx;
+  line-height: 1.6;
+}
+
+.h1 {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+}
+
+.h2 {
+  font-size: 30rpx;
+}
+
+.h3 {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.h4 {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.h4 text {
+  color: #4ab848;
+}

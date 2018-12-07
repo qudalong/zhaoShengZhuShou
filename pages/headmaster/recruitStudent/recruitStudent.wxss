@@ -1,0 +1,88 @@
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background: #4ab848;
+  padding-bottom: 1rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90rpx;
+  z-index: 9999;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 12.33%;
+  margin: 0 12%;
+  color: #fff;
+}
+
+.on {
+  border-bottom: 6rpx solid #fff;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 90rpx;
+}
+/*列表  */
+.info-list {
+  width: 92%;
+  margin: 30rpx auto;
+}
+
+.info-list .mark {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 120rpx;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 10rpx;
+}
+
+.info-list .item .left-title .time {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.right-wrap .status {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+
+.right-wrap .pass {
+  color: #4ab848;
+}
+
+.right-wrap .nopass {
+  color: red;
+}
+
+.info-list .item .hot {
+  padding: 0 5px;
+  color: #fff;
+  background: red;
+  font-size: 20rpx;
+  border-radius: 5px;
+  margin-left: 10rpx;
+  vertical-align: text-top;
+}
+.right-wrap{
+  display: flex;
+  align-items: center;
+}
