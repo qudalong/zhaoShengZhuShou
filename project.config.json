@@ -5,12 +5,13 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"uglifyFileName": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.4.1",
 	"appid": "wxb617a072145bda9a",
-	"projectname": "zszs1",
+	"projectname": "zszs_ok",
 	"isGameTourist": false,
 	"scripts": {
 		"beforeCompile": "",

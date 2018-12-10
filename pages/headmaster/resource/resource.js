@@ -28,6 +28,7 @@ Page({
       name: '办园许可证',
       status: 0
     }],
+    currentTab2:'',
     i_enrol_id: '', //招生ID
     v_kindergarten_nature: '', //幼儿园性质
     v_kindergarten_level: '' //幼儿园评级
@@ -123,6 +124,7 @@ Page({
         console.log(res.data.rtnData[0])
         if (res.data.rtnCode == 10000) {
           var datas = res.data.rtnData[0];
+          var b;
           //查找位置
           for (var i in that.data.array) {
             if (that.data.array[i].name == datas.v_kindergarten_nature) {
@@ -133,7 +135,7 @@ Page({
           for (var j in that.data.array2) {
             if (that.data.array2[j].name == datas.v_kindergarten_level) {
               that.data.array2[j].status = 1;
-              var b=j;
+               b=j;
               break;
             }
           }

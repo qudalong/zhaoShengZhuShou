@@ -160,13 +160,13 @@ Page({
     });
   },
   // 删除自定义标签
-  deleteItem:function(e){
+  deleteItem: function(e) {
     var that = this;
     var index = e.currentTarget.dataset.key;
-    var name=that.data.array1[index].name;
+    var name = that.data.array1[index].name;
     //删除特色
-    for (var i in that.data.ts){
-      if (that.data.ts[i]==name){
+    for (var i in that.data.ts) {
+      if (that.data.ts[i] == name) {
         that.data.ts.splice(i, 1);
       }
     }
@@ -174,7 +174,7 @@ Page({
       ts: that.data.ts
     });
     console.log(that.data.ts)
-    that.data.array1.splice(index,1);
+    that.data.array1.splice(index, 1);
     that.setData({
       array1: that.data.array1
     });
@@ -216,12 +216,13 @@ Page({
             });
           }
           that.setData({
-            allInfo: datas,
-            ts: datas.v_kindergarten_feature.split(";"),
-            // array: datas.v_kindergarten_room_photo.split(";"),
-            // currentTab: a,
+            allInfo: datas
           });
-          // console.log(that.data.array)
+          if (datas.v_kindergarten_feature) {
+            that.setData({
+              ts: datas.v_kindergarten_feature.split(";"),
+            });
+          }
           //临时保存的数组
           var ts_lins = that.data.ts;
           //查找位置
@@ -248,13 +249,13 @@ Page({
           for (var p in _new) {
             for (var m in ts_lins) {
               if (ts_lins[m] == _new[p]) {
-                ts_lins.splice(m,1);
+                ts_lins.splice(m, 1);
               }
             }
           }
           console.log(ts_lins)
           // 改造数组
-          var lins=[];
+          var lins = [];
           for (var o in ts_lins) {
             lins.push({
               name: ts_lins[o],
@@ -297,7 +298,7 @@ Page({
             title: '保存成功',
             duration: 500
           });
-          if(next){
+          if (next) {
             console.log('特色教育下一步')
             wx.navigateTo({
               url: '/pages/headmaster/enterStudent/enterStudent?i_enrol_id=' + that.data.i_enrol_id

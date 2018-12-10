@@ -65,10 +65,10 @@ App({
   },
   globalData: {
     userInfo: null,
-    // url: 'http://192.168.32.106:8080/lbt-xcx-server/'//郭煜
+    url: 'http://192.168.32.106:8081/lbt-xcx-server/'//郭煜
     // url: 'http://192.168.32.102:8080/lbt-xcx-server/'//梁培
     // url: 'http://192.168.32.208:6057/lbt-xcx-server/'//张涛
     // url: 'https://xcx.lebeitong.com/test/'//内网
-    url: 'https://xcx.lebeitong.com/'//外网
+    // url: 'https://xcx.lebeitong.com/'//外网
   }
 })

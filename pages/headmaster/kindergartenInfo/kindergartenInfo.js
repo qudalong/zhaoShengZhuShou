@@ -111,9 +111,7 @@ Page({
   },
 
   submit: function() {
-    wx.showToast({
-      title: '保存成功',
-    });
+  
     var that = this;
     var token = wx.getStorageSync('token');
     var openid = wx.getStorageSync('openid');
@@ -135,6 +133,9 @@ Page({
       },
       success: function(res) {
         if (res.data.rtnCode == 10000) {
+          wx.showToast({
+            title: '保存成功',
+          });
         console.log("保存成功!!!!")
           wx.navigateTo({
             url: '/pages/headmaster/resource/resource?i_enrol_id=' + res.data.rtnData[0].i_enrol_id
