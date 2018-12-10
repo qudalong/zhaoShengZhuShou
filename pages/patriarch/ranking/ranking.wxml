@@ -10,7 +10,7 @@
     <!-- 日榜 -->
     <swiper-item style="overflow:auto">
       <view wx:if="{{allList.length}}">
-        <view bindtap='toPublic' class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}"  wx:if="{{index<45}}">
+        <view bindtap='toPublic' class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" wx:if="{{index<45}}">
           <view class='number' wx:if="{{index==0}}">
             <image class='top3-icon' src="/image/ranking_one.png"></image>
           </view>
@@ -38,7 +38,7 @@
     <!-- 月榜 -->
     <swiper-item style="overflow:auto">
       <view wx:if="{{allList.length}}">
-        <view class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic'  wx:if="{{index<45}}">
+        <view class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic' wx:if="{{index<45}}">
           <view class='number' wx:if="{{index==0}}">
             <image class='top3-icon' src="/image/ranking_one.png"></image>
           </view>
@@ -66,7 +66,7 @@
     <!-- 总榜 -->
     <swiper-item style="overflow:auto">
       <view wx:if="{{allList.length}}">
-        <view class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic'  wx:if="{{index<45}}">
+        <view class='ranking-item' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic' wx:if="{{index<45}}">
           <view class='number' wx:if="{{index==0}}">
             <image class='top3-icon' src="/image/ranking_one.png"></image>
           </view>
@@ -95,34 +95,38 @@
 </view>
 <!--活动已结束  -->
 <view wx:if="{{i_activity==1}}">
-  <view class='top-wrap'>
+  <view  wx:if="{{start_date}}" class='top-wrap'>
     <image class='top_icon' src="/image/ranking@3x.png"></image>
     <view class='time-box'>
       <view>获奖幼儿园</view>
       <view class='time'>活动时间:{{start_date}}至{{end_date}}</view>
     </view>
-  <view wx:if="{{allList.length}}" class='list' >
-    <view bindtap='toPublic' class='ranking-item radius' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic' wx:if="{{index<10}}">
-      <view class='number' wx:if="{{index==0}}">
-        <image class='top3-icon' src="/image/ranking_one.png"></image>
-      </view>
-      <view class='number' wx:elif="{{index==1}}">
-        <image class='top3-icon' src="/image/ranking_two.png"></image>
-      </view>
-      <view class='number' wx:elif="{{index==2}}">
-        <image class='top3-icon' src="/image/ranking_three.png"></image>
-      </view>
-      <view class='number' wx:else>{{index+1}}</view>
-      <view class="head">
-        <image src="{{item.v_kindergarten_photo}}"></image>
-      </view>
-      <view>
-        <view class='kindergarten'>{{item.v_kindergarten_name}}</view>
-        <view class='browse-info'>浏览量：{{item.v_view_num}} 浏览人数：{{item.v_view_people_num}}</view>
+    <view wx:if="{{allList.length}}" class='list'>
+      <view bindtap='toPublic' class='ranking-item radius' wx:for="{{allList}}" wx:key="unique" data-id="{{item.i_enrol_id}}" bindtap='toPublic' wx:if="{{index<10}}">
+        <view class='number' wx:if="{{index==0}}">
+          <image class='top3-icon' src="/image/ranking_one.png"></image>
+        </view>
+        <view class='number' wx:elif="{{index==1}}">
+          <image class='top3-icon' src="/image/ranking_two.png"></image>
+        </view>
+        <view class='number' wx:elif="{{index==2}}">
+          <image class='top3-icon' src="/image/ranking_three.png"></image>
+        </view>
+        <view class='number' wx:else>{{index+1}}</view>
+        <view class="head">
+          <image src="{{item.v_kindergarten_photo}}"></image>
+        </view>
+        <view>
+          <view class='kindergarten'>{{item.v_kindergarten_name}}</view>
+          <view class='browse-info'>浏览量：{{item.v_view_num}} 浏览人数：{{item.v_view_people_num}}</view>
+        </view>
       </view>
     </view>
   </view>
+  <view wx:else class="empty_bg">
+    <image class='empty' mode='widthFix' src="/image/empty_bg.png"></image>
+    <view>暂无内容哦</view>
   </view>
 </view>
 <!--活动说明-->
-<view class='activityExplain' bindtap='toExplain'>活动说明</view>
+<view wx:if="{{start_date}}" class='activityExplain' bindtap='toExplain'>活动说明</view>

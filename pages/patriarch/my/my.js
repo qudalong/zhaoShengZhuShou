@@ -98,8 +98,8 @@ Page({
         token: token
       },
       success: function(res) {
-        console.log('uploadToken.....................')
-        console.log(res)
+        // console.log('uploadToken.....................')
+        // console.log(res)
         if (res.data.rtnCode == 10000) {
           wx.setStorageSync('baseUrl', res.data.rtnData[0].baseUrl);
           wx.setStorageSync('uploadToken', res.data.rtnData[0].uploadToken);
@@ -153,13 +153,10 @@ Page({
         token: wx.getStorageSync('token')
       },
       success: function(res) {
-        //console.log('我的报名')
-        //console.log(res.data)
         if (res.data.rtnCode == 10000) {
           that.setData({
             applyList: res.data.rtnData
           });
-          //console.log(res.data.rtnData)
         } else {}
       }
     });
@@ -179,8 +176,6 @@ Page({
         token: wx.getStorageSync('token') //
       },
       success: function(res) {
-        //console.log('未审核条数')
-        //console.log(res.data)
         if (res.data.rtnCode == 10000) {
           if (res.data.rtnData) {
             that.setData({
@@ -205,8 +200,6 @@ Page({
       },
       success: function(res) {
         wx.hideLoading();
-        //console.log('上传编辑时间')
-        //console.log(res.data)
         if (res.data.rtnCode == 10000) {
           that.setData({
             updataTime: res.data.rtnData[0].v_max_update_time
@@ -228,8 +221,6 @@ Page({
         token: wx.getStorageSync('token') //
       },
       success: function(res) {
-        //console.log('查询幼儿园所查看次数')
-        //console.log(res.data)
         if (res.data.rtnCode == 10000) {
           that.setData({
             v_view_num: parseInt(res.data.rtnData[0].v_view_num)

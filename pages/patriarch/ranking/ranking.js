@@ -48,12 +48,14 @@ Page({
       success: function(res) {
         console.log(res.data)
         if (res.data.rtnCode == 10000) {
+          that.setData({
+            i_activity: res.data.i_activity_is_end,
+            allList: res.data.rtnData
+          });
           if (res.data.v_activity_start_date) {
             that.setData({
               start_date: res.data.v_activity_start_date.split(" ")[0],
               end_date: res.data.v_activity_end_date.split(" ")[0],
-              i_activity: res.data.i_activity_is_end,
-              allList: res.data.rtnData
             });
           }
         }

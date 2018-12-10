@@ -38,14 +38,18 @@ Page({
       title:"努力加载中"
     });
     var that = this;
-    var headmast = options.headmast;
-    var shareNickName = options.shareNickName;
-    var sharePhoto = options.sharePhoto;
-    var shareOpenId = options.shareOpenId;
     var i_enrol_id = options.i_enrol_id; //接收报名id
+    var headmast = options.headmast ? options.headmast : '';
+    // 分享出去后，别人打开时用
+    var shareNickName = options.shareNickName ? options.shareNickName : '';
+    var sharePhoto = options.sharePhoto ? options.sharePhoto : '';
+    var shareOpenId = options.shareOpenId ? options.shareOpenId:'';
+
     that.setData({
-      i_enrol_id: i_enrol_id,
-      shareOpenId: shareOpenId
+      i_enrol_id,
+      shareNickName,
+      sharePhoto,
+      shareOpenId
     });
 
     var date = new Date();
@@ -65,12 +69,14 @@ Page({
     });
 
 
-    console.log("微信姓名=" + shareNickName +"");
-    console.log("shareOpenId=" + shareOpenId);
     var token = wx.getStorageSync('token');
     var openid = wx.getStorageSync('openid');
-    console.log("bendiOpenId=" + openid);
-    console.log("enrolId=" + that.data.i_enrol_id);
+    console.log("openid=" + openid);
+    // 分享出去后，别人打开时用
+    console.log("shareNickName=" + shareNickName +"");
+    console.log("sharePhoto=" + sharePhoto);
+    console.log("shareOpenId=" + shareOpenId);
+
     wx.request({
       url: url + 'enrolParent/selectPublicity.do',
       data: {
@@ -159,14 +165,17 @@ Page({
     that.selectShareNum();
 
     //打开招生宣传页时增加分享者的被查看次数
+    // var name = wx.getStorageSync('nickName');
+    // var url = wx.getStorageSync('avatarUrl');
+    // var id = wx.getStorageSync('openid');
     wx.request({
       url: url + 'enrolParent/addApplyViews.do',
       data: {
         openId: openid, //微信唯一标识
-        enrolID: that.data.id, //招生id
-        shareOpenId: shareOpenId, //分享人微信唯一标识
-        shareNickName: shareNickName, //分享人昵称
-        sharePhoto: sharePhoto //分享人头像
+        enrolID: that.data.i_enrol_id, //招生id
+        shareOpenId: wx.getStorageSync('openid'), //分享人微信唯一标识
+        shareNickName: wx.getStorageSync('nickName'), //分享人昵称
+        sharePhoto: wx.getStorageSync('avatarUrl') //分享人头像
       },
       method: 'POST',
       header: {
@@ -480,8 +489,9 @@ Page({
   share: function() {
     var that = this;
     wx.navigateTo({
-      url: '../shareRanking/shareRanking?enrolId=' + that.data.id
+      url: '../shareRanking/shareRanking?enrolId=' + that.data.i_enrol_id + "&shareOpenId=" + that.data.shareOpenId 
     })
+    console.log('that.data.id=' + that.data.i_enrol_id)
   },
   //我的
   my: function() {
@@ -565,7 +575,6 @@ Page({
   onShow: function() {
     //定位到我的报名
     var that = this;
-    console.log('onShowed')
     wx.getSystemInfo({
       success: function (res) {
         var height = res.windowHeight - 52;   //footerpannelheight为底部组件的高度

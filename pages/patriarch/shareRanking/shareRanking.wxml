@@ -37,7 +37,7 @@
     </block>
   </view>
 </view>
-<view wx:else class="empty_bg">
+<view wx:if="{{allInfo[0]==null}}" class="empty_bg">
   <image class='empty' mode='widthFix' src="/image/empty_bg.png"></image>
   <view>暂无内容哦</view>
 </view>
