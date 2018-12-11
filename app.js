@@ -22,12 +22,13 @@ App({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              console.log(res.data)
+              // console.log(res.data)
               if (res.data.rtnCode == 10000) {
                 //本地存储openid
                 wx.setStorageSync('openid', res.data.rtnData[0].openid);
                 wx.setStorageSync('sessionid', res.data.rtnData[0].sessionid);
                 wx.setStorageSync('token', res.data.token);
+                console.log('openid=' + wx.getStorageSync('openid'))
               } else {
               }
             }
