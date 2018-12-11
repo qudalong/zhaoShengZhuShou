@@ -9,9 +9,9 @@ page {
   font-size: 34rpx;
   top: 44rpx;
 }
-.details2{
+/* .details2{
   min-height: 160rpx;
-}
+} */
 .t20{
   margin-top: 20px !important;
 }

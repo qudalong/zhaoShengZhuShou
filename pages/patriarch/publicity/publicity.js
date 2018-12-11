@@ -40,10 +40,23 @@ Page({
     var that = this;
     var i_enrol_id = options.i_enrol_id; //接收报名id
     var headmast = options.headmast ? options.headmast : '';
-    // 分享出去后，别人打开时用
+    var token = wx.getStorageSync('token');
+    var openid = wx.getStorageSync('openid');
+
+    console.log('当前人openid=' + wx.getStorageSync('openid'));
+    console.log('当前人name=' + wx.getStorageSync('nickName'));
+    console.log('当前人头像=' + wx.getStorageSync('avatarUrl'));
+    
+
+    //分享url带过来的参数
     var shareNickName = options.shareNickName ? options.shareNickName : '';
     var sharePhoto = options.sharePhoto ? options.sharePhoto : '';
     var shareOpenId = options.shareOpenId ? options.shareOpenId:'';
+
+    // 分享出去后，别人打开时用
+    console.log("shareNickName=" + shareNickName);
+    console.log("sharePhoto=" + sharePhoto);
+    console.log("shareOpenId=" + shareOpenId);
 
     that.setData({
       i_enrol_id,
@@ -67,16 +80,6 @@ Page({
     that.setData({
       today: currentdate
     });
-
-
-    var token = wx.getStorageSync('token');
-    var openid = wx.getStorageSync('openid');
-    console.log("openid=" + openid);
-    // 分享出去后，别人打开时用
-    console.log("shareNickName=" + shareNickName +"");
-    console.log("sharePhoto=" + sharePhoto);
-    console.log("shareOpenId=" + shareOpenId);
-
     wx.request({
       url: url + 'enrolParent/selectPublicity.do',
       data: {

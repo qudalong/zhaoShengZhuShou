@@ -9,7 +9,7 @@ Page({
 
   onLoad: function(options) {
     wx.showShareMenu({
-      withShareTicket:true
+      withShareTicket:true 
     });
     var that = this;
     var token = wx.getStorageSync('token');
@@ -216,6 +216,7 @@ Page({
     var name = wx.getStorageSync('nickName');
     var url = wx.getStorageSync('avatarUrl');
     var id = wx.getStorageSync('openid');
+    console.log("我是" + name )
     return {
       title: "我是" + name + ",我是第" + that.data.selectShareNum + "位分享的人",
       path: "/pages/patriarch/publicity/publicity?i_enrol_id=" + that.data.i_enrol_id + "&shareOpenId=" + id + "&shareNickName=" + name + "&sharePhoto=" + url + "&headmast=" + 1,

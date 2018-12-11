@@ -1,6 +1,0 @@
-/* pages/patriarch/pic/pic.wxss */
-.tel{
-  padding: 20px;
-  background: red;
-  color: #fff;
-}

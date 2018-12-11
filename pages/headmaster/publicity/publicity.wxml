@@ -20,7 +20,7 @@
           <view>
             <image src="/image/phone_icon@3x.png" class='icon'></image> 联系电话：{{allInfo.v_kindergarten_tel}}</view>
           <view class='adress'>
-            <image src="/image/positioning_icon@3x.png" class='icon'></image>
+            <image src="/image/positioning_btn.png" class='icon'></image>
             <view class='flex details'>{{allInfo.v_kindergarten_address}}</view>
           </view>
         </view>

@@ -94,8 +94,6 @@ Page({
     this.setData({
       array2: this.data.array2
     });
-
-
   },
 
   /**
@@ -121,10 +119,10 @@ Page({
         token: token // 默认值
       },
       success: function(res) {
-        console.log(res.data.rtnData[0])
+        // console.log(res.data.rtnData[0])
         if (res.data.rtnCode == 10000) {
           var datas = res.data.rtnData[0];
-          var b;
+          var b=0;
           //查找位置
           for (var i in that.data.array) {
             if (that.data.array[i].name == datas.v_kindergarten_nature) {

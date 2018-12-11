@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/patriarch/my/my",
-    "pages/canvas/canvas",
     "pages/headmaster/intro/intro",
     "pages/headmaster/education/education",
     "pages/headmaster/resource/resource",
@@ -11,7 +10,6 @@
     "pages/headmaster/introduction/introduction",
     "pages/headmaster/kindergartenInfo/kindergartenInfo",
     "pages/headmaster/recruitStudent/recruitStudent",
-    "pages/patriarch/pic/pic",
     "pages/index/index",
     "pages/patriarch/myInfo/myInfo",
     "pages/headmaster/visitTime/visitTime",
